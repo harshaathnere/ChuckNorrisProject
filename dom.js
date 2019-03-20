@@ -1,7 +1,8 @@
 document.querySelector('.get-jokes').addEventListener('click', getJokes);
 
 function getJokes(e) {
-    const number = document.querySelector('input [type="number"]').value;
+   
+    const number = document.querySelector('#number').value;
     console.log(number);
     const xhr = new XMLHttpRequest();
     xhr.open('GET' ,`http://api.icndb.com/jokes/random/${number}`,true);
@@ -13,7 +14,7 @@ function getJokes(e) {
       let output = '';
       if(response.type === 'success'){
          response.value.forEach(function(jokes){
-               output += `<li>${joke.joke}</li>`
+               output += `<li>${jokes.joke}</li>`
          });
       }
       else{
